@@ -1,0 +1,13 @@
+# Environments
+.env
+.venv
+env/
+venv/
+env.bak/
+venv.bak/
+
+*.pyc
+__pycache__/
+cache/
+
+image.png

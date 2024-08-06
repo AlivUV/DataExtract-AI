@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: DE_backend
+    restart: always
+    volumes:
+      - static:/static
+    build:
+      context: ../
+      dockerfile: ./deployment/backend/Dockerfile
+    ports:
+      - "8000:8000"
+
+  frontend:
+    container_name: DE_frontend
+    build:
+      context: ../
+      dockerfile: ./deployment/frontend/Dockerfile
+    volumes:
+      - frontend:/app/build
+
+  nginx:
+    container_name: DE_nginx
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    volumes:
+      - static:/static
+      - frontend:/var/www/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  static:
+  frontend:
+  bd_data:
