@@ -28,9 +28,9 @@
 
 3. Build docker compose
    ```
-   docker-compose --env-file ./.env build --no-cache
+   docker-compose build --no-cache
    ```
 4. Start docker compose
    ```
-   docker-compose --env-file ./.env up
+   docker-compose --env-file ./backend.env up
    ```

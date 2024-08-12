@@ -11,8 +11,19 @@ RUN apk add --no-cache postgresql-libs && \
 
 RUN pip install -r requirements.txt
 
-COPY ./backend /app/
+# COPY ./backend /app/
+COPY ./backend/applicants /app/applicants
+COPY ./backend/assistant /app/assistant
+COPY ./backend/backend /app/backend
+COPY ./backend/users /app/users
+COPY ./backend/manage.py /app/manage.py
 COPY ./deployment/backend.env /app/.env
 COPY ./deployment/backend/entrypoint.sh .
+
+RUN python manage.py makemigrations
+RUN python manage.py migrate --noinput
+
+RUN python manage.py createsuperuser --noinput
+
 
 ENTRYPOINT ["sh", "/app/entrypoint.sh"]
