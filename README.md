@@ -1,5 +1,9 @@
 ## DataExtract AI
 
+This application utilizes the artificial intelligence model of Google Gemini, for which a key is required. The key can be created in [Google AI Studio](https://ai.google.dev/gemini-api/docs) as described in the Google [documentation](https://aistudio.google.com/app/apikey) .
+
+In addition, it uses the url of a Power BI report embedded. The embedded report can be created by following the steps in [Microsoft Learn](https://learn.microsoft.com/en-us/fabric/security/service-admin-row-level-security)
+
 ### Local configuration
 ### Frontend
 
